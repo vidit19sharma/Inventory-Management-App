@@ -1,0 +1,23 @@
+{
+  "name": "inventory_app",
+  "version": "1.0.0",
+  "description": "to manage the product inventory",
+  "main": "index.js",
+  "scripts": {
+    "go" : "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidit19sharma/Inventory-Management-App.git"
+  },
+  "author": "NEO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vidit19sharma/Inventory-Management-App/issues"
+  },
+  "homepage": "https://github.com/vidit19sharma/Inventory-Management-App#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
