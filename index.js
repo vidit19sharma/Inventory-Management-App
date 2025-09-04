@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import ejsLayouts from 'express-ejs-layouts';
 //import ProductController from path.join('src','controllers','product.controller');
 import ProductController from './src/controllers/product.controller.js';
 
@@ -10,6 +11,10 @@ const server = express();
 server.set("view engine","ejs")
 //setting where the views are -> telling ejs where it is
 server.set("views", path.join(path.resolve(),'src','views'))
+
+//using the Layout as middleware
+//it use the resuable code -> reusable code in layout file
+server.use(ejsLayouts);
 
 //create an instance of the product controller
 const productController = new ProductController();
