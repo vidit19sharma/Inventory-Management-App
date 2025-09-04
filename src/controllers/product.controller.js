@@ -14,7 +14,12 @@ export default class ProductController{
     let products = ProductModel.getTestData();
     console.log(products)
 
-        //sending the file back to client
-        return res.sendFile(path.join(path.resolve(),'src','views','products.html'))
+    //now for ejs
+    //we use render function
+        //render use name of the template and data-> data in key value pair whatevr key we can use in ejs
+    res.render("products",{products})
+
+        // //sending the file back to client
+        // return res.sendFile(path.join(path.resolve(),'src','views','products.ejs'))
     }
 }

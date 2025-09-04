@@ -7,5 +7,9 @@
 </head>
 <body>
     <h1>This is Product Page</h1>
+    <!-- This line is not hard coded it is js -->
+    <% products.forEach(product=>{ %>
+    <h2><%= product.name %></h2>
+    <% }) %>
 </body>
 </html>
