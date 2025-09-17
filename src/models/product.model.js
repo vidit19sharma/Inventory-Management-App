@@ -11,7 +11,22 @@ export default class ProductModel{
     }
     //static methods dont need instance directly call by class name
     static getTestData(){
+      console.log(products)
         return products
+    }
+
+    //write a method to add any product
+    static add(prodObj){
+      let newProduct = new ProductModel(products.length+1, 
+      prodObj.name,
+      prodObj.second,
+      29.99,
+      1,
+      'https://m.media-amazon.com/images/I/51xwGSNX-EL._SX356_BO1,204,203,200_.jpg',
+    )
+
+    //pushing the data to main file
+    products.push(newProduct)
     }
 }
 var products = [
