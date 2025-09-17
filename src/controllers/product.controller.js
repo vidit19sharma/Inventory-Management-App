@@ -17,6 +17,7 @@ export default class ProductController{
     //we use render function
         //render use name of the template and data-> data in key value pair whatevr key we can use in ejs
         //as it is using layout now it will use layout as main file and putwhicher view we will select and render inside layout <%-body%> - because od layout 
+        //specied where to look in index file set (views property)
     res.render("products",{products})
 
         // //sending the file back to client
