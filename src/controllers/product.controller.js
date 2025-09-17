@@ -26,7 +26,7 @@ export default class ProductController{
     //to display new product form data
     newProduct(req,res){
         //it is to render new product page
-        res.render("new-product");
+        res.render("new-product",{errorMessage:null});
     }
 
     //to process the data from new product form

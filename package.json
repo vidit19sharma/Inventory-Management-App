@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "to manage the product inventory",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "go": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

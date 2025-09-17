@@ -19,8 +19,8 @@ export default class ProductModel{
     static add(prodObj){
       let newProduct = new ProductModel(products.length+1, 
       prodObj.name,
-      prodObj.second,
-      29.99,
+      prodObj.desc,
+      prodObj.price,
       1,
       'https://m.media-amazon.com/images/I/51xwGSNX-EL._SX356_BO1,204,203,200_.jpg',
     )

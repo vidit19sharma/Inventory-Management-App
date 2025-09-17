@@ -3,6 +3,7 @@ import path from 'path';
 import ejsLayouts from 'express-ejs-layouts';
 //import ProductController from path.join('src','controllers','product.controller');
 import ProductController from './src/controllers/product.controller.js';
+import validateRequest from './src/middlewares/newProductvalidation.middleware.js';
 
 const server = express();
 
@@ -30,7 +31,7 @@ server.get('/',productController.getProducts)
 server.get("/new",productController.newProduct)
 
 //for form submit
-server.post("/",productController.addNewProduct,productController.getProducts) 
+server.post("/",validateRequest,productController.addNewProduct,productController.getProducts) 
 
 // making views available to access
 server.use(express.static(path.join('src','views')))
