@@ -1,23 +1,29 @@
 // custom validation middleware
 
-const validateRequest = (req,res,next) => {
-    //validate data
+//this is the body from req
+import {body,validationResult} from "express-validator";
+
+const validateRequest = async (req,res,next) => {
+
+    //----------------------------  1. setup rules for validation
+        const rules = [
+            //when false then error with message will be populated
+            body('name').notEmpty().withMessage("Name is required"),
+            body('price').isFloat({gt:0}).withMessage("Price should be positive")
+        ]
+
+    //----------------------------- 2. run those rules
+        await Promise.all(rules.map(rule=>rule.run(req)))
+
+    //----------------------------- 3. check if there are any errors after running the rules
+
     
-    //destructure
-    const {name,price} = req.body;
+    var error = validationResult(req);
 
-    let errors = []; //initiliazation to use array functions
-
-    if(!name || name.trim ==""){
-        errors.push("name is required");
-    }
-    if(!price || parseFloat(price)<1){
-        errors.push("price must be positive");
-    }
-
-    //if error{}
-    if(errors.length){
-        return res.render("new-product",{errorMessage:errors[0]})
+    //----------------------------- 4. if eroore are found return error msg
+    if(!error.isEmpty()){
+        //.array to convert error into array then it return the  obj ffor the error message we select the msg fied of the array
+        return res.render("new-product",{errorMessage:error.array()[0].msg})
     }
 
     //if not exit on last return
