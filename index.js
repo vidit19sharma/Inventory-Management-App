@@ -33,8 +33,16 @@ server.get("/new",productController.newProduct)
 //for form submit
 server.post("/",validateRequest,productController.addNewProduct,productController.getProducts) 
 
+//for update product
+server.get("/update/:id", productController.getUpdateProductView)
+server.post("/update",productController.updateProduct,productController.getProducts)
+
+//for deleting the product
+server.get("/delete/:id",productController.deleteProduct,productController.getProducts)
+
 // making views available to access
 server.use(express.static(path.join('src','views')))
+server.use(express.static(path.join('src','assets')))
 
 server.listen(3300,()=>{
     console.log("server is listening at port 3300")
