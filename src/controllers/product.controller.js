@@ -32,13 +32,13 @@ export default class ProductController{
 
     //to process the data from new product form
     //post method 
-    addNewProduct(req,res,next){
+    addNewProduct(req,res){
         //access data from form
         //console.log(req.body);
         //sending data to the model
         ProductModel.add(req.body)
         //calling next middleware
-        next();
+        res.redirect('/')
     }
 
     getUpdateProductView(req,res){
@@ -78,14 +78,14 @@ export default class ProductController{
 
     }
 
-    updateProduct(req,res,next){
+    updateProduct(req,res){
         const prodObj = req.body;
         // console.log(prodObj)
         ProductModel.updateProduct(prodObj);
-        next();
+        res.redirect('/');
     }
 
-    deleteProduct(req,res,next){
+    deleteProduct(req,res){
         const id = req.params.id;
 
         ProductModel.checkById(id);
@@ -96,6 +96,6 @@ export default class ProductController{
 
         }
         
-        next();
+        res.redirect('/');
     }
 }

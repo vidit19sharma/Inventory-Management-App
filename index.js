@@ -36,15 +36,15 @@ server.get('/',productController.getProducts)
 server.get("/new",productController.newProduct)
 
 //for form submit
-server.post("/",validateRequest,productController.addNewProduct,productController.getProducts) 
+server.post("/",validateRequest,productController.addNewProduct) 
 
 //for update product
 server.get("/update/:id", productController.getUpdateProductView)
-server.post("/update",productController.updateProduct,productController.getProducts)
+server.post("/update",productController.updateProduct)
 
 //for deleting the product
 //fetch funtion sends post req
-server.post("/delete/:id",productController.deleteProduct,productController.getProducts)
+server.post("/delete/:id",productController.deleteProduct)
 
 server.listen(3300,()=>{
     console.log("server is listening at port 3300")
