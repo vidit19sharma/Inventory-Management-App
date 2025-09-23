@@ -48,7 +48,10 @@ export default class ProductModel{
     static deleteProduct(id){
       const index = products.findIndex(p=>p.id==id);
       products.splice(index,1);
-      // console.log(products);
+      products.forEach((c,i)=>{
+        c.id=i+1;
+      })
+       console.log(products);
     }
 }
 
