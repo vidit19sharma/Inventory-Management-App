@@ -51,7 +51,7 @@ export default class ProductModel{
       products.forEach((c,i)=>{
         c.id=i+1;
       })
-       console.log(products);
+      //  console.log(products);
     }
 }
 
