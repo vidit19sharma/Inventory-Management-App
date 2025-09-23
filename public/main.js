@@ -6,7 +6,9 @@ function deleteConfirm(id){
             method:'POST',
         }).then((res)=>{
             if(res.ok){
-                location.reload();
+                alert("Deleted Successfully")
+
+                window.location.replace(window.location.href);
             }
         })
     }
