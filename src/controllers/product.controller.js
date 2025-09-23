@@ -53,7 +53,7 @@ export default class ProductController{
         if(prodFound){
             res.render('update-product',{prodFound})
         }else{
-            res.status(401).send("Product not exist he")
+            res.status(401).send("Product not exist ")
         }
         // let products = ProductModel.getTestData();
 

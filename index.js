@@ -9,7 +9,8 @@ const server = express();
 
 // making views available to access
 server.use(express.static(path.join('src','views')))
-server.use(express.static(path.join('src','assets')))
+server.use(express.static(path.join('public','assets')))
+server.use(express.static(path.join('public')))
 
 //set the data parsing encoding
 server.use(express.urlencoded({extended:true}))
@@ -42,7 +43,8 @@ server.get("/update/:id", productController.getUpdateProductView)
 server.post("/update",productController.updateProduct,productController.getProducts)
 
 //for deleting the product
-server.get("/delete/:id",productController.deleteProduct,productController.getProducts)
+//fetch funtion sends post req
+server.post("/delete/:id",productController.deleteProduct,productController.getProducts)
 
 server.listen(3300,()=>{
     console.log("server is listening at port 3300")
