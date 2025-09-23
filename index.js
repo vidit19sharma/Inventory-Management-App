@@ -7,6 +7,10 @@ import validateRequest from './src/middlewares/newProductvalidation.middleware.j
 
 const server = express();
 
+// making views available to access
+server.use(express.static(path.join('src','views')))
+server.use(express.static(path.join('src','assets')))
+
 //set the data parsing encoding
 server.use(express.urlencoded({extended:true}))
 
@@ -39,10 +43,6 @@ server.post("/update",productController.updateProduct,productController.getProdu
 
 //for deleting the product
 server.get("/delete/:id",productController.deleteProduct,productController.getProducts)
-
-// making views available to access
-server.use(express.static(path.join('src','views')))
-server.use(express.static(path.join('src','assets')))
 
 server.listen(3300,()=>{
     console.log("server is listening at port 3300")

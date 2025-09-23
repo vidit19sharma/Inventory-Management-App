@@ -55,6 +55,27 @@ export default class ProductController{
         }else{
             res.status(401).send("Product not exist he")
         }
+        // let products = ProductModel.getTestData();
+
+        // console.log("req.params.id:", req.params.pId);
+
+        // console.log("All products:", products);
+
+        // const prodFound = products.find(p => p.id == req.params.pId);
+
+        // console.log("prodFound:", prodFound);
+
+        // if (prodFound) {
+
+        // res.render("update-product", { prodFound });
+
+        // } else {
+
+        // res.status(404).send("Product not exist he");
+
+        // }
+
+
     }
 
     updateProduct(req,res,next){

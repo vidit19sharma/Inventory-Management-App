@@ -30,7 +30,7 @@ export default class ProductModel{
     }
 
     //method to check the product
-    static checkById(id){
+    static  checkById(id){
       // console.log(id);
       return products.find(p=>p.id==id);
         
