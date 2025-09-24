@@ -3,7 +3,9 @@ import path from 'path';
 import ejsLayouts from 'express-ejs-layouts';
 //import ProductController from path.join('src','controllers','product.controller');
 import ProductController from './src/controllers/product.controller.js';
-import validateRequest from './src/middlewares/newProductvalidation.middleware.js';
+import UserController from './src/controllers/user.controller.js';
+import validateNewProductRequest from './src/middlewares/newProductvalidation.middleware.js';
+import validateUpddateProductRequest from './src/middlewares/updateProduct.middleware.js';
 
 const server = express();
 
@@ -28,15 +30,25 @@ server.use(ejsLayouts);
 //create an instance of the product controller
 const productController = new ProductController();
 
+//create instance of USerr Class
+const userController = new UserController();
+
+server.get('/',userController.getHome);
+server.get('/signup',userController.getSignup);
+server.get('/login',userController.getLogin);
+
+server.post('/signup',userController.signupUser);
+server.post('/login', userController.loginUser);
+
 //sending product page
 //from middleware
-server.get('/',productController.getProducts)
+server.get('/products',productController.getProducts)
 
 //for new product page
 server.get("/new",productController.newProduct)
 
 //for form submit
-server.post("/",validateRequest,productController.addNewProduct) 
+server.post("/product",validateNewProductRequest,productController.addNewProduct) 
 
 //for update product
 server.get("/update/:id", productController.getUpdateProductView)

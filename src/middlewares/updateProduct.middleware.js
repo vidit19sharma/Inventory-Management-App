@@ -3,7 +3,7 @@
 //this is the body from req
 import {body,validationResult} from "express-validator";
 
-const validateNewProductRequest = async (req,res,next) => {
+const validateUpdateProductRequest = async (req,res,next) => {
     //----------------------------  1. setup rules for validation
         const rules = [
             //when false then error with message will be populated
@@ -25,11 +25,11 @@ const validateNewProductRequest = async (req,res,next) => {
     if(!error.isEmpty()){
         //.array to convert error into array then it return the  obj ffor the error message we select the msg fied of the array
         console.log(error.array()[0].msg)
-        return res.render("new-product",{errorMessage:error.array()[0].msg})
+        return res.render("update-product",{errorMessage:error.array()[0].msg})
     }
 
     //if not exit on last return
     next();
 }
 
-export default validateNewProductRequest;
+export default validateUpdateProductRequest;
