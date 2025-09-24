@@ -27,11 +27,20 @@ export default class UserController{
     //login user
     loginUser(req,res){
         //console.log(req.body)
-        if(UserModel.checkUser(req.body)){
+        const user = UserModel.checkUser(req.body);
+        
+        if(user){
+            console.log(user.name);
+            //acccesing session object
+                //attaching client info to the session
+                //now we can validate it on other requests
+                //now when user logged in they will get the seseion id and it will be stored in cookie browser
+            req.session.userName = user.name;
             res.redirect('/products')
         }else{
             res.render('login',{errorMessage : "Invalid Credentials"})
         }
+
     }
 
 }

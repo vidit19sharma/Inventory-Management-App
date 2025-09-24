@@ -6,6 +6,8 @@ import ProductController from './src/controllers/product.controller.js';
 import UserController from './src/controllers/user.controller.js';
 import validateNewProductRequest from './src/middlewares/newProductvalidation.middleware.js';
 import validateUpddateProductRequest from './src/middlewares/updateProduct.middleware.js';
+import session from 'express-session';
+import { auth } from './src/middlewares/auth.middleware.js';
 
 const server = express();
 
@@ -13,6 +15,21 @@ const server = express();
 server.use(express.static(path.join('src','views')))
 server.use(express.static(path.join('public','assets')))
 server.use(express.static(path.join('public')))
+
+//using session to store the data
+    //it is a middleware that makes sure sessions are created  on every req=>sever.use
+    //configuring session
+    //it will attach the session object to request object
+server.use(session({
+    // use keygenerator fr generation of keys
+    secret: 'SecretKey',
+    //resave the session
+    resave:false,
+    //save session it is empty
+    saveUninitialized:true,
+    //secure->https || we using http so no secure
+    cookie:{secure:false},
+}));
 
 //set the data parsing encoding
 server.use(express.urlencoded({extended:true}))
@@ -42,21 +59,21 @@ server.post('/login', userController.loginUser);
 
 //sending product page
 //from middleware
-server.get('/products',productController.getProducts)
+server.get('/products',auth,productController.getProducts)
 
 //for new product page
-server.get("/new",productController.newProduct)
+server.get("/new",auth,productController.newProduct)
 
 //for form submit
-server.post("/product",validateNewProductRequest,productController.addNewProduct) 
+server.post("/product",auth,validateNewProductRequest,productController.addNewProduct) 
 
 //for update product
-server.get("/update/:id", productController.getUpdateProductView)
-server.post("/update",productController.updateProduct)
+server.get("/update/:id",auth, productController.getUpdateProductView)
+server.post("/update",auth,productController.updateProduct)
 
 //for deleting the product
 //fetch funtion sends post req
-server.post("/delete/:id",productController.deleteProduct)
+server.post("/delete/:id",auth,productController.deleteProduct)
 
 server.listen(3300,()=>{
     console.log("server is listening at port 3300")
