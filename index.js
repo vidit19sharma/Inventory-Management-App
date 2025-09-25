@@ -53,6 +53,7 @@ const userController = new UserController();
 server.get('/',userController.getHome);
 server.get('/signup',userController.getSignup);
 server.get('/login',userController.getLogin);
+server.get('/logout',userController.logoutUser);
 
 server.post('/signup',userController.signupUser);
 server.post('/login', userController.loginUser);

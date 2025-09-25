@@ -35,7 +35,9 @@
         
                 <!-- Nav menu -->
                 <div class="hidden lg:flex lg:gap-x-12">
-                    <a href="/products" class="text-base/6 font-semibold text-gray-900">Products</a>
+                    <% if(locals.userName){ %>
+                        <a href="/products" class="text-base/6 font-semibold text-gray-900">Products</a>
+                    <% } %> 
                     <a href="#" class="text-base/6 font-semibold text-gray-900">Features</a>
                     <a href="#" class="text-base/6 font-semibold text-gray-900">Contact US</a>
                     <a href="#" class="text-base/6 font-semibold text-gray-900">About US</a>
@@ -43,7 +45,11 @@
 
                 <!-- login button -->
                 <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <a href="/login" class="text-base/6 font-semibold text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a>
+                    <% if(locals.userName){ %>
+                        <a href="/logout" class="text-base/6 font-semibold text-gray-900">Log Out <span aria-hidden="true">&rarr;</span></a>
+                    <% }else{ %>
+                        <a href="/login" class="text-base/6 font-semibold text-gray-900">Log In <span aria-hidden="true">&rarr;</span></a>
+                    <% } %> 
                 </div>
             </nav>
 
@@ -67,13 +73,21 @@
                     <div class="mt-6 flow-root">
                     <div class="-my-6 divide-y divide-gray-500/10">
                         <div class="space-y-2 py-6">
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Products</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">SignUp</a>
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">About US</a>
+                            <% if(locals.userName){ %>
+                                <a href="/products" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Products</a>
+                            <% } %> 
+                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
+                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Contact US</a>
+                            <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">About US</a>
                         </div>
                         <div class="py-6">
-                        <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+                            <% if(locals.userName){ %>
+                                <span class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-bold text-gray-900 hover:bg-gray-50">Welcome <%= locals.userName %></span>
+                                <a href="/logout" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log Out</a>
+                            <% }else{ %>
+                                <a href="/signup" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Sign Up</a>
+                                <a href="/login" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+                            <% } %> 
                         </div>
                     </div>
                     </div>

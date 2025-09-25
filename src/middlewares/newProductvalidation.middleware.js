@@ -25,7 +25,7 @@ const validateNewProductRequest = async (req,res,next) => {
     if(!error.isEmpty()){
         //.array to convert error into array then it return the  obj ffor the error message we select the msg fied of the array
         console.log(error.array()[0].msg)
-        return res.render("new-product",{errorMessage:error.array()[0].msg})
+        return res.render("new-product",{errorMessage:error.array()[0].msg,userName: req.session.userName})
     }
 
     //if not exit on last return

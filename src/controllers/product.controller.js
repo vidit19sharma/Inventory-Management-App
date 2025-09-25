@@ -19,7 +19,7 @@ export default class ProductController{
         //as it is using layout now it will use layout as main file and putwhicher view we will select and render inside layout <%-body%> - because od layout 
         //specied where to look in index file set (views property)
         // console.log(products[0].name);
-        res.render("products",{products})
+        res.render("products",{products,userName: req.session.userName})
         // //sending the file back to client
         // return res.sendFile(path.join(path.resolve(),'src','views','products.ejs'))
     }
@@ -27,7 +27,7 @@ export default class ProductController{
     //to display new product form data
     newProduct(req,res){
         //it is to render new product page
-        res.render("new-product",{errorMessage:null});
+        res.render("new-product",{errorMessage:null,userName: req.session.userName});
     }
 
     //to process the data from new product form
@@ -51,7 +51,7 @@ export default class ProductController{
         //console.log(prodFound)
         //if found return view
         if(prodFound){
-            res.render('update-product',{prodFound,errorMessage:null})
+            res.render('update-product',{prodFound,errorMessage:null,userName: req.session.userName})
         }else{
             res.status(401).send("Product not exist ")
         }
