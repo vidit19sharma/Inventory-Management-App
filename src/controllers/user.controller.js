@@ -6,9 +6,20 @@ import UserModel from "../models/user.model.js";
 
 export default class UserController{
 
+    //general controller
     getHome(req,res){
         res.render("home",{userName: req.session.userName});
     }
+    getFeatures(req,res){
+        res.render("features",{userName: req.session.userName});
+    }
+    getContactUS(req,res){
+        res.render("contact",{userName: req.session.userName});
+    }
+    getAboutUS(req,res){
+        res.render("about",{userName: req.session.userName});
+    }
+
 
     getSignup(req,res){
         res.render("signup",{userName: req.session.userName});

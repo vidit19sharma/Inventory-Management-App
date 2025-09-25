@@ -1,0 +1,38 @@
+.delayed-appear1 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 0.1s; /* 2 seconds delay before starting */
+}
+
+ @keyframes fadeIn {
+    to {
+    opacity: 1;
+    }
+}
+
+
+.delayed-appear2 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 0.2s; /* 2 seconds delay before starting */
+}
+
+ @keyframes fadeIn {
+    to {
+    opacity: 1;
+    }
+}
+
+.delayed-appear3 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    animation-delay: 0.3s; /* 2 seconds delay before starting */
+}
+
+ @keyframes fadeIn {
+    to {
+    opacity: 1;
+    }
+}
+
+ td img {width:80px;}

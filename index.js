@@ -58,6 +58,13 @@ server.get('/logout',userController.logoutUser);
 server.post('/signup',userController.signupUser);
 server.post('/login', userController.loginUser);
 
+
+//extra views
+server.get('/contact',userController.getContactUS);
+server.get('/about',userController.getAboutUS);
+server.get('/features',userController.getFeatures);
+
+
 //sending product page
 //from middleware
 server.get('/products',auth,productController.getProducts)
