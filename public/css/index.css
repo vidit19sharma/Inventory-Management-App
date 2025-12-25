@@ -36,3 +36,13 @@
 }
 
  td img {width:80px;}
+
+.animate-pulse-custom{
+animation: pulse-cus 2s ease-in-out infinite 
+ }
+
+@keyframes pulse-cus {
+  50% {
+    opacity: 0.7;
+  }
+}

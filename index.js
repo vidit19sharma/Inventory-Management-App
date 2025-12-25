@@ -12,7 +12,7 @@ import { auth } from './src/middlewares/auth.middleware.js';
 const server = express();
 
 // making views available to access
-server.use(express.static(path.join('src','views')))
+//  .0server.use(express.static(path.join('src','views')))
 server.use(express.static(path.join('public','assets')))
 server.use(express.static(path.join('public')))
 
@@ -26,7 +26,7 @@ server.use(session({
     //resave the session
     resave:false,
     //save session it is empty
-    saveUninitialized:true,
+    saveUninitialized:true, 
     //secure->https || we using http so no secure
     cookie:{secure:false},
 }));

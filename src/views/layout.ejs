@@ -36,7 +36,9 @@
                 <div class="hidden lg:flex lg:gap-x-12">
                     <% if(locals.userName){ %>
                         <a href="/products" class="text-base/6 font-semibold text-gray-900">Products</a>
-                    <% } %> 
+                    <% }else{ %> 
+                        <a href="/signup" class="text-base/6 font-semibold text-gray-900">Sign Up</a>
+                    <% } %>
                     <a href="/features" class="text-base/6 font-semibold text-gray-900">Features</a>
                     <a href="/contact" class="text-base/6 font-semibold text-gray-900">Contact US</a>
                     <a href="/about" class="text-base/6 font-semibold text-gray-900">About US</a>
